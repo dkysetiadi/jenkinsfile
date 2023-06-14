@@ -1,14 +1,9 @@
 pipeline {
-    agent {
-        any {
-            label "lInux && java11"
-        }
-    }
-    
+    agent any
     stages {
-        stage('Hello') {
+        stage ("hello") {
             steps {
-                echo ('Hello Pipeline')
+                echo("hellow pipeline")
             }
         }
     }
