@@ -5,11 +5,6 @@ pipeline {
       EMAIL = "dkysetiadi@gmail.com"
       APP = credentials("dicky")
     }
-    options {
-                disableConcurrentBuilds()
-                timeout(time: 10, unit: 'SECONDS')
-            }
-    }
     stages {
       stage("Prepare") {
        steps {
@@ -56,4 +51,5 @@ pipeline {
   cleanup {
     echo "Don't care success or error"
   }
+}
 }
