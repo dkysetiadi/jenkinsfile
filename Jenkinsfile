@@ -9,6 +9,7 @@ pipeline {
        steps {
          echo ("Hello Build1")
          echo ("Hello Build2")
+         sleep(5)
          echo ("Hello Build3")
            }
         }
@@ -16,6 +17,7 @@ pipeline {
        steps {
          echo ("Hello Test1")
          echo ("Hello Test2")
+         sleep(5)
          echo ("Hello Test3")
            }
         }
@@ -23,6 +25,7 @@ pipeline {
        steps {
          echo ("Hello Deploy1")
          echo ("Hello Deploy2")
+         sleep(5)
          echo ("Hello Deploy3")
            }
         }
