@@ -13,7 +13,7 @@ pipeline {
         }
         stage("Test") {
        steps {
-         echo ("Start BUild"))
+         echo ("Start BUild")
          echo ("FInish Build")
            }
         }
