@@ -14,10 +14,12 @@ pipeline {
        steps {
          echo ("Hello Test")
            }
-           stage("Deploy") {
+        }
+        stage("Deploy") {
        steps {
          echo ("Hello Deploy")
            }
+        }
     }
     post {
   always {
