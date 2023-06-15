@@ -1,11 +1,13 @@
 pipeline {
-    agent {
-        any {
+    agent none
+
+      stage("Build") {
+        agent {
+        node {
            label "lInux && java11"
         }
     }
     stages {
-      stage("Build") {
        steps {
         script {
           for (int i = 0; i < 10; i++)
@@ -17,6 +19,12 @@ pipeline {
            }
         }
         stage("Test") {
+          agent {
+        node {
+           label "lInux && java11"
+        }
+    }
+    stages {
        steps {
 
         script {
@@ -31,6 +39,12 @@ pipeline {
            }
         }
         stage("Deploy") {
+          agent {
+        node {
+           label "lInux && java11"
+        }
+    }
+    stages {
        steps {
          echo ("Start Deploy")
          echo ("Finish Deploy")
