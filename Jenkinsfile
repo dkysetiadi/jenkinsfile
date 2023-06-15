@@ -5,6 +5,11 @@ pipeline {
       EMAIL = "dkysetiadi@gmail.com"
       APP = credentials("dicky")
     }
+    options {
+                // Timeout counter starts BEFORE agent is allocated
+                timeout(time: 10, unit: 'SECONDS')
+            }
+    }
     stages {
       stage("Prepare") {
        steps {
