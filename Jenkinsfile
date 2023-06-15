@@ -16,6 +16,26 @@ pipeline {
          echo ("Finish Build")
            }
         }
+        stage("Test") {
+       steps {
+        script {
+          def data = [
+            "Firstname" : "Dicky"
+            "Lastname" : "Setiadi"
+          ] 
+          writeJSON(file: "data.json", json: data)
+        }
+         echo ("Start Test")
+         sh("./mvnw test")
+         echo ("FInish Test")
+           }
+        }
+        stage("Deploy") {
+       steps {
+         echo ("Start Deploy")
+         echo ("Finish Deploy")
+           }
+        }
     }
     post {
   always {
