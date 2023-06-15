@@ -7,21 +7,33 @@ pipeline {
     stages {
       stage("Build") {
        steps {
+        script {
+          for (int i = 0; i < 10; i++)
+          echo ("Script ${i}")
+        }
          echo ("Start Build")
+         sh("./mvnw clean compile test-compile")
          echo ("Finish Build")
            }
         }
         stage("Test") {
        steps {
-         echo ("Start BUild")
-         echo ("FInish Build")
+        script {
+          def data:ArrayList = [
+            "Firstname" : "Dicky"
+            "Lastname" : "Setiadi"
+          ] 
+          writeJSON (file: "data.json", json: data)
+        }
+         echo ("Start Test")
+         sh("./mvnw test")
+         echo ("FInish Test")
            }
         }
         stage("Deploy") {
        steps {
-         echo ("Hello Deploy1")
-         echo ("Hello Deploy2")
-         echo ("Hello Deploy3")
+         echo ("Start Deploy")
+         echo ("Finish Deploy")
            }
         }
     }
