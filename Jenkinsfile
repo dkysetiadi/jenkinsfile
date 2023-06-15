@@ -1,5 +1,5 @@
 pipeline {
-    enviroment {
+    environment {
       AUTHOR = "Dicky Setiadi"
       EMAIL = "dkysetiadi@gmail.com"
     }
