@@ -6,7 +6,7 @@ pipeline {
       APP = credentials("dicky")
     }
     options {
-                // Timeout counter starts BEFORE agent is allocated
+                disableConcurrentBuilds()
                 timeout(time: 10, unit: 'SECONDS')
             }
     }
@@ -56,5 +56,4 @@ pipeline {
   cleanup {
     echo "Don't care success or error"
   }
-}
 }
