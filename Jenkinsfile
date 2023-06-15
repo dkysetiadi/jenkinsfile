@@ -1,4 +1,5 @@
 pipeline {
+  agent any
     environment {
       AUTHOR = "Dicky Setiadi"
       EMAIL = "dkysetiadi@gmail.com"
