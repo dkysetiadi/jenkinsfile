@@ -14,7 +14,7 @@ pipeline {
         }
         stage("Test") {
        steps {
-         echo ("Start BUild"))
+         echo ("Start BUild")
          sh("./mvnw test")
          echo ("FInish Build")
            }
