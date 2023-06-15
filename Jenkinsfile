@@ -3,6 +3,7 @@ pipeline {
     environment {
       AUTHOR = "Dicky Setiadi"
       EMAIL = "dkysetiadi@gmail.com"
+      APP = credentials("dicky")
     }
     stages {
       stage("Prepare") {
@@ -12,6 +13,8 @@ pipeline {
           echo("Start Job : ${env.JOB_NAME}")
           echo("Start Build : ${env.BUILD_NUMBER}")
           echo("Branch Name : ${env.BRANCH_NAME}")
+          echo("APP USer : ${APP_USR}")
+          echo("APP Password : ${APP_PSW}")
            }
         }
         stage("Test") {
