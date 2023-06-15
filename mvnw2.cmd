@@ -23,7 +23,6 @@ pipeline {
        steps {
          echo ("Hello Deploy1")
          echo ("Hello Deploy2")
-         sleep(5)
          echo ("Hello Deploy3")
            }
         }
