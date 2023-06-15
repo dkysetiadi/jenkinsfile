@@ -1,30 +1,18 @@
 pipeline {
-    agent none
-
-      stage("Build") {
-        agent {
-        node {
+    agent {
+        any {
            label "lInux && java11"
         }
     }
     stages {
+      stage("Prepare") {
        steps {
-        script {
-          for (int i = 0; i < 10; i++)
-          echo ("Script ${i}")
-        }
-         echo ("Start Build")
-         sh("./mvnw clean compile test-compile")
-         echo ("Finish Build")
+          echo("Start Job : ${env.JOB_NAME}")
+          echo("Start Build : ${env.BUILD_NUMBER}")
+          echo("Branch Name : ${env.BRANCH_NAME}")
            }
         }
         stage("Test") {
-          agent {
-        node {
-           label "lInux && java11"
-        }
-    }
-    stages {
        steps {
 
         script {
@@ -39,12 +27,6 @@ pipeline {
            }
         }
         stage("Deploy") {
-          agent {
-        node {
-           label "lInux && java11"
-        }
-    }
-    stages {
        steps {
          echo ("Start Deploy")
          echo ("Finish Deploy")
