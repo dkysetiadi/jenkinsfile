@@ -70,11 +70,11 @@ pipeline {
         }
         stage("Deploy") {
         input {
-                message "Can we deploy?"
+                message "Can we deplo?"
                 ok "Yes, we should."
-                submitter "alice,bob"
+                submitter "Dicky"
                 parameters {
-                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                    string(name: 'PERSON', defaultValue: 'Dicky', description: 'Who should I say hello to?')
                 }
             }
        steps {
