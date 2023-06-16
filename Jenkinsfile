@@ -15,7 +15,7 @@ pipeline {
 
         text(name: 'DESCRIPTION', defaultValue: 'Description', description: 'Tell me about your description')
 
-        booleanParam(name: 'DEPLOY', defaultValue: true, description: 'Need to DEploy')
+        booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Need to Deploy')
 
         choice(name: 'SOSIAL_MEDIA', choices: ['Instagram', 'Facebook', 'Twittwr'], description: 'Pick something')
 
@@ -70,16 +70,26 @@ pipeline {
         }
         stage("Deploy") {
         input {
-                message "Can we deplo?"
+                message "Can we deploy?"
                 ok "Yes, we should."
                 submitter "Dicky"
                 parameters {
-                    string(name: 'PERSON', defaultValue: 'Dicky', description: 'Who should I say hello to?')
+                    string(name: 'PERSON', defaultValue: 'Dicky', description: 'We will deploy to?')
                 }
             }
        steps {
          echo "Hello, ${PERSON}, nice to meet you."
            }
+        }
+        stage('Release') {
+            when {
+                expression  {
+                  return params.DEPLOY
+                }
+            }
+            steps {
+                echo ('Deploying')
+            }
         }
     }
     post {
