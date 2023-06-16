@@ -69,9 +69,16 @@ pipeline {
            }
         }
         stage("Deploy") {
+        input {
+                message "Can we deploy?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
+            }
        steps {
-         echo ("Start Deploy")
-         echo ("Finish Deploy")
+         echo "Hello, ${PERSON}, nice to meet you."
            }
         }
     }
